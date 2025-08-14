@@ -1,0 +1,4 @@
+.DS_Store
+Gemini.md
+.venv
+*__pycache__/
