@@ -1,0 +1,100 @@
+{
+    "nodes": {
+        "Product": {
+            "properties": {
+                "productName": "STRING",
+                "quantityPerUnit": "STRING",
+                "unitsOnOrder": "INTEGER",
+                "supplierID": "STRING",
+                "productID": "STRING",
+                "discontinued": "BOOLEAN",
+                "categoryID": "STRING",
+                "reorderLevel": "INTEGER",
+                "unitsInStock": "INTEGER",
+                "unitPrice": "FLOAT"
+            }
+        },
+        "Category": {
+            "properties": {
+                "picture": "STRING",
+                "categoryID": "STRING",
+                "description": "STRING",
+                "categoryName": "STRING"
+            }
+        },
+        "Supplier": {
+            "properties": {
+                "companyName": "STRING",
+                "contactName": "STRING",
+                "homePage": "STRING",
+                "phone": "STRING",
+                "postalCode": "STRING",
+                "contactTitle": "STRING",
+                "region": "STRING",
+                "address": "STRING",
+                "fax": "STRING",
+                "supplierID": "STRING",
+                "country": "STRING",
+                "city": "STRING"
+            }
+        },
+        "Customer": {
+            "properties": {
+                "fax": "STRING",
+                "companyName": "STRING",
+                "customerID": "STRING",
+                "phone": "STRING",
+                "contactName": "STRING",
+                "contactTitle": "STRING",
+                "region": "STRING",
+                "address": "STRING",
+                "postalCode": "STRING",
+                "country": "STRING",
+                "city": "STRING"
+            }
+        },
+        "Order": {
+            "properties": {
+                "shipName": "STRING",
+                "requiredDate": "STRING",
+                "shipCity": "STRING",
+                "employeeID": "STRING",
+                "shipPostalCode": "STRING",
+                "shippedDate": "STRING",
+                "freight": "STRING",
+                "orderDate": "STRING",
+                "orderID": "STRING",
+                "shipAddress": "STRING",
+                "customerID": "STRING",
+                "shipCountry": "STRING",
+                "shipVia": "STRING",
+                "shipRegion": "STRING"
+            }
+        }
+    },
+    "relationships": {
+        "PART_OF": {
+            "start": "Product",
+            "end": "Category"
+        },
+        "SUPPLIES": {
+            "start": "Supplier",
+            "end": "Product"
+        },
+        "PURCHASED": {
+            "start": "Customer",
+            "end": "Order"
+        },
+        "ORDERS": {
+            "start": "Order",
+            "end": "Product",
+            "properties": {
+                "orderID": "STRING",
+                "unitPrice": "STRING",
+                "productID": "STRING",
+                "quantity": "INTEGER",
+                "discount": "STRING"
+            }
+        }
+    }
+}
